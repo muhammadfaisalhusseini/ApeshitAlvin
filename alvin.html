@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apeshit Alvin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #98ff98;
+            color: #4a148c;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: rgba(74, 20, 140, 0.9);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            color: #98ff98;
+            font-weight: bold;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 1rem 4rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .coming-soon {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #4a148c;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+        }
+
+        .main-meme {
+            width: min(100%, 300px);
+            height: auto;
+            margin: 1rem auto;
+        }
+
+        /* Banner */
+        .banner {
+            background: #4a148c;
+            color: #98ff98;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: bold;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            margin-top: 4rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        /* Why Join Section */
+        .why-join {
+            padding: 4rem 1rem;
+            background: rgba(74, 20, 140, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: #4a148c;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .feature-item {
+            background: rgba(74, 20, 140, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #4a148c;
+        }
+
+        .feature-item h3 {
+            color: #4a148c;
+            margin-bottom: 1rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+        }
+
+        .dancing-monkey {
+            width: min(150px, 30%);
+            height: auto;
+            position: absolute;
+            right: 5%;
+            top: -75px;
+            transform: rotate(10deg);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .ca-section {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        .ca-container {
+            background: rgba(74, 20, 140, 0.1);
+            border: 2px solid #4a148c;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .ca-title {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            color: #4a148c;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .ca-placeholder {
+            font-family: monospace;
+            padding: 0.8rem;
+            background: rgba(74, 20, 140, 0.05);
+            border-radius: 8px;
+            color: #4a148c;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        }
+
+        .social-link {
+            color: #4a148c;
+            text-decoration: none;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            padding: 0.5rem 2rem;
+            border: 2px solid #4a148c;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #4a148c;
+            color: #98ff98;
+        }
+
+        /* Buy Button */
+        .cta-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #4a148c;
+            color: #98ff98;
+            padding: clamp(0.875rem, 2vw, 1.2rem);
+            border: none;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 100;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #5c1e99;
+        }
+
+        /* Add padding to prevent content from being hidden behind fixed button */
+        body {
+            padding-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .dancing-monkey {
+                width: 100px;
+                top: -50px;
+            }
+            
+            .hero {
+                padding-top: 6rem;
+            }
+            
+        }
+        @media (max-width: 768px) {
+            .ca-container {
+                padding: 1rem;
+            }
+        }
+   
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">APESHIT ALVIN</div>
+        </div>
+    </header>
+
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="coming-soon">Website Coming Soon</h1>
+            <p class="subtitle">Carefully being created for our community...</p>
+            <img src="img2.jpg" alt="Happy Alvin" class="main-meme">
+        </div>
+    </section>
+
+    <section class="why-join">
+        <img src="img1.jpg" alt="Dancing Alvin" class="dancing-monkey">
+        <h2 class="section-title">Why Join?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>COLLABORATION</h3>
+                <p>Built by the community, for the community. A symbol of what's possible when we come together.</p>
+            </div>
+            <div class="feature-item">
+                <h3>GOOD VIBES ONLY</h3>
+                <p>This is about more than gains—it's about being part of the journey, the laughs, and the legendary moments.</p>
+            </div>
+        </div>
+    </section>
+    <div class="ca-section">
+        <div class="ca-container">
+            <h3 class="ca-title">Contract Address (CA)</h3>
+            <div class="ca-placeholder">Contract will be revealed at launch 🚀</div>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <a href="https://t.me/ApeshitAlvin" class="social-link">Telegram</a>
+        <a href="https://x.com/apeshitalvin" class="social-link">Twitter</a>
+    </div>
+
+    <button class="cta-button">BUY $ALVIN NOW</button>
+</body>
+</html>
